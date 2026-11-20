@@ -35,11 +35,11 @@ Intervenciones previstas:
 - Guía del puente: [TERMUX_AGENT.md](../TERMUX_AGENT.md).
 
 ## Estado honesto
-**Hecho en GitHub:** especificación Redwood V1, decoder portado, preflight, agente y primera tarea en cola.
+**Hecho en GitHub:** especificación Redwood V1, decoder portado, preflight, agente local con tareas permitidas, pruebas de seguridad y workflow CI. Se han puesto en cola dos tareas: preflight y primer pase de inventario/spawner.
 
 **Hecho en el teléfono:** inventario y extracción anteriores ya existen según la evidencia que el usuario compartió en sesiones previas. La tarea preflight está en cola, pero aún no hay resultado devuelto por el agente.
 
-**Pendiente:** activar el agente local una vez; confirmar preflight; localizar paquetes de foliage/instancias y leer transforms; validar parser con los assets reales; solo después diseñar una primera modificación sobre copia.
+**Pendiente:** activar el agente local una vez; recibir automáticamente los resultados de ambas tareas; revisar candidatos y diagnóstico del parser; localizar paquetes de foliage/instancias y leer transforms; solo después diseñar una primera modificación sobre copia.
 
 ## Restricciones
 - No modificar PAK, UASSET, UEXP, UMAP ni UBULK originales.
@@ -49,4 +49,4 @@ Intervenciones previstas:
 - No repetir extracción ni inventario salvo que aparezca una razón técnica demostrable.
 
 ## Siguiente paso único
-Completar la activación del agente y recibir el resultado automático de `ark-redwood-preflight-001`. Después, continuar con el análisis de los paquetes ya extraídos y del inventario existente.
+Completar la activación del agente y recibir los resultados automáticos de `ark-redwood-preflight-001` y `ark-redwood-first-pass-002`. Después, continuar con el análisis de los candidatos y de los paquetes ya extraídos.
