@@ -1,0 +1,6 @@
+{
+  "id": "ark-redwood-first-pass-003",
+  "task": "ark_redwood_first_pass",
+  "created_at": "2026-11-20",
+  "purpose": "Repetir solo el primer pase corregido: validar inventario y registrar el spawner como referencia no parseada, sin intentar usarlo como paquete de instancias foliage."
+}
