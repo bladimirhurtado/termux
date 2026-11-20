@@ -1,0 +1,20 @@
+name: Termux and ARK static checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  python-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile project scripts
+        run: python -m compileall -q scripts tests
+      - name: Test task runner safety
+        run: python -m unittest tests/test_termux_agent.py -v
