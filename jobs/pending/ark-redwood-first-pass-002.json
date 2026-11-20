@@ -1,0 +1,6 @@
+{
+  "id": "ark-redwood-first-pass-002",
+  "task": "ark_redwood_first_pass",
+  "created_at": "2026-11-20",
+  "purpose": "Reutilizar el inventario PAK existente y probar la lectura del spawner Redwood ya extraído, sin reextraer ni modificar originales."
+}
