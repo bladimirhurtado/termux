@@ -13,7 +13,7 @@ class AgentSafetyTests(unittest.TestCase):
     def test_only_explicit_task_is_allowed(self):
         self.assertEqual(
             AGENT.ALLOWED_TASKS,
-            {"ark_redwood_preflight": "tests/ark_redwood_preflight.py"},
+            {"ark_redwood_preflight": "tests/ark_redwood_preflight.py", "ark_redwood_first_pass": "scripts/ark_redwood_first_pass.py"},
         )
 
     def test_shell_command_is_not_an_allowed_task(self):
