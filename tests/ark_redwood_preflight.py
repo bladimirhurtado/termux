@@ -19,7 +19,7 @@ INVENTORY = ARK_ROOT / "01_INVENTARIO/original/pakchunk1-Android_lista.txt"
 REDWOOD_ROOT = ARK_ROOT / "ARK_MAP_LAB/redwood_spawner/CoreBlueprints/Spawners"
 SPAWNER_UASSET = REDWOOD_ROOT / "DinoSpawnEntriesRedwoods.uasset"
 SPAWNER_UEXP = REDWOOD_ROOT / "DinoSpawnEntriesRedwoods.uexp"
-DECODER = HOME / "bladi3ai/scripts/ark_redwood_instance_decoder.py"
+DECODER = Path(__file__).resolve().parents[1] / "scripts/ark_redwood_instance_decoder.py"
 
 def report(label: str, ok: bool, detail: str = "") -> bool:
     status = "OK" if ok else "PENDIENTE"
