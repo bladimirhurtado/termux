@@ -17,4 +17,4 @@ jobs:
       - name: Compile project scripts
         run: python -m compileall -q scripts tests
       - name: Test task runner safety
-        run: python -m unittest tests/test_termux_agent.py -v
+        run: python tests/test_termux_agent.py -v
