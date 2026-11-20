@@ -52,6 +52,10 @@ def publish_changes(message: str) -> None:
     changed = git("diff", "--cached", "--quiet", check=False).returncode != 0
     if changed:
         git("commit", "-m", message)
+    # Retry publishing any local commits, including commits created before a
+    # previous push failed. Do not rely only on newly staged changes.
+    ahead = git("rev-list", "--count", f"origin/{BRANCH}..HEAD").stdout.strip()
+    if ahead and int(ahead) > 0:
         git("push", "origin", BRANCH)
 
 
