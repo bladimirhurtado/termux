@@ -27,6 +27,7 @@ BRANCH = os.environ.get("TERMUX_AGENT_BRANCH", "main")
 
 ALLOWED_TASKS = {
     "ark_redwood_preflight": "tests/ark_redwood_preflight.py",
+    "ark_redwood_first_pass": "scripts/ark_redwood_first_pass.py",
 }
 
 
