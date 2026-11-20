@@ -1,0 +1,6 @@
+{
+  "id": "ark-redwood-preflight-001",
+  "task": "ark_redwood_preflight",
+  "created_at": "2026-11-20",
+  "purpose": "Comprobar los insumos locales de ARK Redwood antes de continuar con la descodificación de instancias."
+}
