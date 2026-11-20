@@ -73,7 +73,7 @@ def execute_job(job_path: Path) -> None:
     error = None
     try:
         with contextlib.redirect_stdout(output), contextlib.redirect_stderr(output):
-            namespace = {"__name__": "__main__", "__file__": str(script)}
+            namespace = {"__name__": "termux_agent_task", "__file__": str(script)}
             source = script.read_text(encoding="utf-8")
             exec(compile(source, str(script), "exec"), namespace)
             main = namespace.get("main")
