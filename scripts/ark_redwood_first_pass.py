@@ -15,7 +15,7 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
-from ark_redwood_instance_decoder import inventory_candidates, inspect_package
+from ark_redwood_instance_decoder import inventory_candidates
 
 ARK_ROOT = Path(os.environ.get("ARK_ROOT", Path.home() / "ark")).expanduser()
 INVENTORY = ARK_ROOT / "01_INVENTARIO/original/pakchunk1-Android_lista.txt"
@@ -59,15 +59,18 @@ def main() -> int:
         report["errors"].append({"stage": "inventory", "error": "inventory_not_found"})
 
     if SPAWNER.is_file():
-        try:
-            report["package_result"] = inspect_package(SPAWNER)
-        except Exception as exc:
-            report["errors"].append({"stage": "spawner_parse", "type": type(exc).__name__, "error": str(exc)})
+        report["package_result"] = {
+            "status": "not_attempted",
+            "reason": "El spawner es de fauna, no el paquete de instancias de foliage. El parser uasset_read 0.6.2 ya confirmó que rechaza su layout.",
+            "uasset_bytes": SPAWNER.stat().st_size,
+            "uexp_exists": SPAWNER.with_suffix(".uexp").is_file(),
+            "note": "No se vuelve a parsear este spawner como sustituto de los paquetes de mapa/foliage."
+        }
     else:
         report["errors"].append({"stage": "spawner", "error": "spawner_not_found"})
 
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    return 0 if not report["errors"] else 2
+    return 0 if report["inventory"].get("exists") and not report["errors"] else 2
 
 
 if __name__ == "__main__":
